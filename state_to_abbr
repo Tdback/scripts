@@ -5,11 +5,10 @@
 #   Author  : Tyler Dunneback
 #   Date    : Apr 08, 2023
 #   GitHub  : https://github.com/Tdback
-#   Version : 1.0
+#
+#   Sed script that renames state names to their abbreviations.
 #
 # ==============================================================================
-
-# Sed script that renames state names to their abbreviations.
 
 s/, Alabama/ AL/
 s/, Alaska/ AK/
