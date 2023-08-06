@@ -1,5 +1,14 @@
 #!/bin/sh
 
-mkdir -p $1
-cd $1
+# ==============================================================================
+#
+#   Author  : Tyler Dunneback
+#   Date    : Aug 05, 2023
+#   GitHub  : https://github.com/Tdback
+#
+#   Create a directory then go to that directory.
+#
+# ==============================================================================
+
+mkdir -p "$1" && cd "$1" || exit 1
 # vim: ft=sh
