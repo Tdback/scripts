@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# ==============================================================================
+#
+#   Author  : Tyler Dunneback
+#   Date    : Aug 05, 2023
+#   GitHub  : https://github.com/Tdback
+#
+#   View the total number of installed packages via pacman.
+#
+# ==============================================================================
+
+pacman -Q | wc -l | xargs -I{} echo "Packages installed: {}"
+
+# vim: ft=sh

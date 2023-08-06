@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# ==============================================================================
+#
+#   Author  : Tyler Dunneback
+#   Date    : Aug 05, 2023
+#   GitHub  : https://github.com/Tdback
+#
+#   A simple calculator written in awk for quick arithmetic in the shell.
+#
+# ==============================================================================
+
+awk "BEGIN { print $* }"
+
+# vim: ft=sh

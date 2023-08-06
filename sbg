@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# ==============================================================================
+#
+#   Author  : Tyler Dunneback
+#   Date    : Aug 05, 2023
+#   GitHub  : https://github.com/Tdback
+#
+#   Quick way to set the background on my system.
+#
+# ==============================================================================
+
+img_dir="$HOME"/.local/backgrounds/
+
+[ "$1" = "-r" ] && feh --bg-scale --randomize "$img_dir" && exit 0
+
+images=$(ls "$img_dir")
+
+selected=$(echo "$images" | fzf)
+
+[ -z "$selected" ] && exit 0
+
+feh --bg-scale "$img_dir$selected"
+
+# vim: ft=sh

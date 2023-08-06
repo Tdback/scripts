@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# ==============================================================================
+#
+#   Author  : Tyler Dunneback
+#   Date    : Aug 05, 2023
+#   GitHub  : https://github.com/Tdback
+#
+#   Fzf shortcuts for opening files with neovim.
+#
+# ==============================================================================
+
+fedit () {
+    file=$(find "$@" -not -path "*/\.git*" -type f -print | fzf --bind "ctrl-o:execute-silent(setsid xdg-open {}&)")
+    [ -e "$file" ] && ${EDITOR:-vi} "file"
+}
+
+f () {
+    case "$*" in
+        d)
+            fedit ~/Documents/
+            ;;
+        D)
+            fedit ~/Downloads/
+            ;;
+        c)
+            fedit ~/.config/
+            ;;
+        p)
+            fedit ~/projects/
+            ;;
+        s)
+            fedit ~/.scripts/
+            ;;
+        .)
+            fedit ~/.dotfiles/
+            ;;
+        *)
+            fedit .
+            ;;
+    esac
+}
+
+f "$*"
+# vim: ft=sh

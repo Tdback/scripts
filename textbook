@@ -1,0 +1,6 @@
+#!/bin/sh
+
+textbook=$(echo "$1" | sed 's/ /+/g')
+$BROWSER "https://libgen.rs/search.php?req=$textbook"
+
+# vim: ft=sh

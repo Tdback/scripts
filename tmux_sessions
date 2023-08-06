@@ -1,0 +1,11 @@
+#!/bin/sh
+
+tmux_running=$(pgrep tmux)
+
+if [ -z "$TMUX" ] && [ -z $tmux_running ]
+then
+    tmux new -s main
+    tmux attach -t main
+fi
+
+# vim: ft=sh

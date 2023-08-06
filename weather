@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# ==============================================================================
+#
+#   Author  : Tyler Dunneback
+#   Date    : Aug 05, 2023
+#   GitHub  : https://github.com/Tdback
+#
+#   Quick way to check the weather forecast.
+#
+# ==============================================================================
+
+default="kalamazoo"
+
+city=$(echo "$1" | tr '+' ' ')
+: "${city:=$default}"
+
+curl -s "https://wttr.in/$city" | head -n -2
+# vim: ft=sh
