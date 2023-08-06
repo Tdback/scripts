@@ -12,7 +12,7 @@
 
 fedit () {
     file=$(find "$@" -not -path "*/\.git*" -type f -print | fzf --bind "ctrl-o:execute-silent(setsid xdg-open {}&)")
-    [ -e "$file" ] && ${EDITOR:-vi} "file"
+    [ -e "$file" ] && ${EDITOR:-vi} "$file"
 }
 
 f () {
