@@ -1,6 +1,16 @@
 #!/bin/sh
 
+# ==============================================================================
+#
+#   Author  : Tyler Dunneback
+#   Date    : Aug 06, 2023
+#   GitHub  : https://github.com/Tdback
+#
+#   Quick way to find textbooks.
+#
+# ==============================================================================
+
 textbook=$(echo "$1" | sed 's/ /+/g')
-$BROWSER "https://libgen.rs/search.php?req=$textbook"
+${BROWSER:-firefox} "https://libgen.rs/search.php?req=$textbook"
 
 # vim: ft=sh
