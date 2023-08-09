@@ -10,52 +10,52 @@
 #
 # ==============================================================================
 
-s/ AL/, Alabama/
-s/ AK/, Alaska/
-s/ AZ/, Arizona/
-s/ AR/, Arkansas/
-s/ CA/, California/
-s/ CO/, Colorado/
-s/ CT/, Connecticut/
-s/ DE/, Delaware/
-s/ FL/, Florida/
-s/ GA/, Georgia/
-s/ HI/, Hawaii/
-s/ ID/, Idaho/
-s/ IL/, Illinois/
-s/ IN/, Indiana/
-s/ IA/, Iowa/
-s/ KS/, Kansas/
-s/ KY/, Kentucky/
-s/ LA/, Louisiana/
-s/ ME/, Maine/
-s/ MD/, Maryland/
-s/ MA/, Massachusetts/
-s/ MI/, Michigan/
-s/ MS/, Mississippi/
-s/ MO/, Missouri/
-s/ MT/, Montana/
-s/ NE/, Nebraska/
-s/ NV/, Nevada/
-s/ NH/, New Hampshire/
-s/ NJ/, New Jersey/
-s/ NM/, New Mexico/
-s/ NY/, New York/
-s/ NC/, North Carolina/
-s/ ND/, North Dakota/
-s/ OH/, Ohio/
-s/ OK/, Oklahoma/
-s/ OR/, Oregon/
-s/ PA/, Pennsylvania/
-s/ RI/, Rhode Island/
-s/ SC/, South Carolina/
-s/ SD/, South Dakota/
-s/ TN/, Tennessee/
-s/ TX/, Texas/
-s/ UT/, Utah/
-s/ VT/, Vermont/
-s/ VA/, Virginia/
-s/ WA/, Washington/
-s/ WV/, West Virginia/
-s/ WI/, Wisconsin/
-s/ WY/, Wyoming/
+s/AL/Alabama/g
+s/AK/Alaska/g
+s/AZ/Arizona/g
+s/AR/Arkansas/g
+s/CA/California/g
+s/CO/Colorado/g
+s/CT/Connecticut/g
+s/DE/Delaware/g
+s/FL/Florida/g
+s/GA/Georgia/g
+s/HI/Hawaii/g
+s/ID/Idaho/g
+s/IL/Illinois/g
+s/IN/Indiana/g
+s/IA/Iowa/g
+s/KS/Kansas/g
+s/KY/Kentucky/g
+s/LA/Louisiana/g
+s/ME/Maine/g
+s/MD/Maryland/g
+s/MA/Massachusetts/g
+s/MI/Michigan/g
+s/MS/Mississippi/g
+s/MO/Missouri/g
+s/MT/Montana/g
+s/NE/Nebraska/g
+s/NV/Nevada/g
+s/NH/New Hampshire/g
+s/NJ/New Jersey/g
+s/NM/New Mexico/g
+s/NY/New York/g
+s/NC/North Carolina/g
+s/ND/North Dakota/g
+s/OH/Ohio/g
+s/OK/Oklahoma/g
+s/OR/Oregon/g
+s/PA/Pennsylvania/g
+s/RI/Rhode Island/g
+s/SC/South Carolina/g
+s/SD/South Dakota/g
+s/TN/Tennessee/g
+s/TX/Texas/g
+s/UT/Utah/g
+s/VT/Vermont/g
+s/VA/Virginia/g
+s/WA/Washington/g
+s/WV/West Virginia/g
+s/WI/Wisconsin/g
+s/WY/Wyoming/g
