@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# ==============================================================================
+#
+#   Author  : Tyler Dunneback
+#   Date    : Aug 05, 2023
+#   GitHub  : https://github.com/Tdback
+#
+#   Quickly update an mpd playlist with mpc after adding new songs to the
+#   music directory.
+#
+# ==============================================================================
+
+music_dir="$HOME/Media/Music/"
+playlist_name="$1"
+
+[ -d "$music_dir" ] && cd "$music_dir" || exit 1
+
+[ -e "$HOME/.config/mpd/playlists/${playlist_name}.m3u" ] && mpc rm "$playlist_name"
+
+# Add every song in the music directory.
+mpc add -- *
+
+mpc save "$1"
+
+# vim: ft=sh
