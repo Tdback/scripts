@@ -10,8 +10,6 @@
 #
 # ==============================================================================
 
-set -xe
-
 [ ! -d "$HOME"/.dotfiles/archlinux/ ] && mkdir "$HOME"/.dotfiles/archlinux/
 
 pacman -Qqn >"$HOME"/.dotfiles/archlinux/pacmanlist
