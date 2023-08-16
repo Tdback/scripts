@@ -1,14 +1,12 @@
 #!/bin/sh
 
-# ==============================================================================
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : sbg
+# @created     : Tue Aug 15 09:07:56 PM EDT 2023
 #
-#   Author  : Tyler Dunneback
-#   Date    : Aug 05, 2023
-#   GitHub  : https://github.com/Tdback
-#
-#   Quick way to set the background on my system.
-#
-# ==============================================================================
+# @description : Quick way to set the background on my system.
+################################################################################
 
 img_dir="$HOME"/.local/backgrounds/
 

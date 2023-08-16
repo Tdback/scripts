@@ -1,14 +1,12 @@
 #!/bin/sed -f
 
-# ==============================================================================
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : state_to_abbr
+# @created     : Tue Aug 15 09:09:02 PM EDT 2023
 #
-#   Author  : Tyler Dunneback
-#   Date    : Apr 08, 2023
-#   GitHub  : https://github.com/Tdback
-#
-#   Sed script that renames state names to their abbreviations.
-#
-# ==============================================================================
+# @description : Sed script that renames state names to their abbreviations.
+################################################################################
 
 s/Alabama/AL/g
 s/Alaska/AK/g

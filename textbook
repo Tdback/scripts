@@ -1,14 +1,12 @@
 #!/bin/sh
 
-# ==============================================================================
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : textbook
+# @created     : Tue Aug 15 09:09:51 PM EDT 2023
 #
-#   Author  : Tyler Dunneback
-#   Date    : Aug 06, 2023
-#   GitHub  : https://github.com/Tdback
-#
-#   Quick way to find textbooks.
-#
-# ==============================================================================
+# @description : Quick way to find textbooks.
+################################################################################
 
 textbook=$(echo "$1" | sed 's/ /+/g')
 ${BROWSER:-firefox} "https://libgen.rs/search.php?req=$textbook"

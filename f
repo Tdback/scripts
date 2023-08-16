@@ -1,14 +1,12 @@
 #!/bin/sh
 
-# ==============================================================================
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : f
+# @created     : Tue Aug 15 09:03:33 PM EDT 2023
 #
-#   Author  : Tyler Dunneback
-#   Date    : Aug 05, 2023
-#   GitHub  : https://github.com/Tdback
-#
-#   Fzf shortcuts for opening files with neovim.
-#
-# ==============================================================================
+# @description : Fzf shortcuts for opening files with neovim.
+#################################################################################
 
 fedit () {
     file=$(find "$@" -not -path "*/\.git*" -type f -print | fzf --bind "ctrl-o:execute-silent(setsid xdg-open {}&)")

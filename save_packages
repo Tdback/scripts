@@ -1,14 +1,12 @@
 #!/bin/sh
 
-# ==============================================================================
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : save_packages
+# @created     : Tue Aug 15 09:07:37 PM EDT 2023
 #
-#   Author  : Tyler Dunneback
-#   Date    : Aug 05, 2023
-#   GitHub  : https://github.com/Tdback
-#
-#   Create a backup of all installed packages on the system.
-#
-# ==============================================================================
+# @description : Create a backup of all installed packages on the system.
+################################################################################
 
 [ ! -d "$HOME"/.dotfiles/archlinux/ ] && mkdir "$HOME"/.dotfiles/archlinux/
 

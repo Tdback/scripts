@@ -1,15 +1,13 @@
 #!/bin/sh
 
-# ==============================================================================
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : mpc_up
+# @created     : Tue Aug 15 09:06:27 PM EDT 2023
 #
-#   Author  : Tyler Dunneback
-#   Date    : Aug 05, 2023
-#   GitHub  : https://github.com/Tdback
-#
-#   Quickly update an mpd playlist with mpc after adding new songs to the
-#   music directory.
-#
-# ==============================================================================
+# @description : Quickly update an mpd playlist with mpc after adding new songs
+#                to the music directory.
+################################################################################
 
 music_dir="$HOME/Media/Music/"
 playlist_name="$1"

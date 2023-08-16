@@ -1,14 +1,12 @@
 #!/bin/sh
 
-# ==============================================================================
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : weather
+# @created     : Tue Aug 15 09:11:07 PM EDT 2023
 #
-#   Author  : Tyler Dunneback
-#   Date    : Aug 05, 2023
-#   GitHub  : https://github.com/Tdback
-#
-#   Quick way to check the weather forecast.
-#
-# ==============================================================================
+# @description : Quick way to check the weather forecast.
+################################################################################
 
 default="kalamazoo"
 

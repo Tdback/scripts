@@ -1,14 +1,12 @@
 #!/bin/sh
 
-# ==============================================================================
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : pkgs
+# @created     : Tue Aug 15 05:27:41 PM EDT 2023
 #
-#   Author  : Tyler Dunneback
-#   Date    : Aug 05, 2023
-#   GitHub  : https://github.com/Tdback
-#
-#   View the total number of installed packages via pacman.
-#
-# ==============================================================================
+# @description : View the total number of installed packages via pacman.
+################################################################################
 
 pacman -Q | wc -l | xargs -I{} echo "Packages installed: {}"
 
