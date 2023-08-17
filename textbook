@@ -9,6 +9,6 @@
 ################################################################################
 
 textbook=$(echo "$1" | sed 's/ /+/g')
-${BROWSER:-firefox} "https://libgen.rs/search.php?req=$textbook"
+${BROWSER:-firefox} "https://libgen.rs/search.php?req=$textbook" &
 
 # vim: ft=sh
