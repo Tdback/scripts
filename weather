@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 ################################################################################
 # @author      : Tyler Dunneback (tylerdback@pm.me)
