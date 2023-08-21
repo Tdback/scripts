@@ -19,6 +19,6 @@ playlist_name="$1"
 # Add every song in the music directory.
 mpc add -- *
 
-mpc save "$1"
+mpc save "$playlist_name"
 
 # vim: ft=sh
