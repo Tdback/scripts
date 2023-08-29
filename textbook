@@ -8,7 +8,7 @@
 # @description : Quick way to find textbooks.
 ################################################################################
 
-textbook=$(echo "$1" | sed 's/ /+/g')
+textbook=$(echo "$1" | tr ' ' '+')
 ${BROWSER:-firefox} "https://libgen.rs/search.php?req=$textbook" &
 
 # vim: ft=sh

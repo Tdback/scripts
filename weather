@@ -10,7 +10,7 @@
 
 default="kalamazoo"
 
-city=$(echo "$1" | tr '+' ' ')
+city=$(echo "$1" | tr ' ' '+')
 : "${city:=$default}"
 
 curl -s "https://wttr.in/$city" | head -n -2
