@@ -57,9 +57,9 @@ search () {
         read -r ans
         printf "Starting search for '%s'..." "$ans"
 
-        result=$(grep -cr "$ans" "$RFC_PATH" |\
-            awk -F':' '{ if ($2 > 0) { sub(/^\/.+\/rfc\//,"",$1)
-                            print "Filename: "$1" | Occurrence: "$2 }}')
+        result=$(grep -cr "$ans" "$RFC_PATH" \
+            | awk -F':' '{ if ($2 > 0) { sub(/^\/.+\/rfc\//,"",$1)
+                                print "Filename: "$1" | Occurrence: "$2 }}')
 
         echo " done;"
     fi
@@ -70,9 +70,9 @@ search () {
         read -r ans
         printf "Starting advanced search for '%s'..." "$ans"
 
-        result=$(grep -Pcr "$ans" "$RFC_PATH" |\
-            awk -F':' '{ if ($2 > 0) { sub(/^\/.+\/rfc\//,"",$1)
-                            print "Filename: "$1" | Occurrence: "$2 }}')
+        result=$(grep -Pcr "$ans" "$RFC_PATH" \
+            | awk -F':' '{ if ($2 > 0) { sub(/^\/.+\/rfc\//,"",$1)
+                                print "Filename: "$1" | Occurrence: "$2 }}')
 
         echo " done;"
     fi
