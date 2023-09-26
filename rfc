@@ -28,7 +28,7 @@ setup () {
     # Check for PAGER, otherwise default to good ol' less
     [ -z "$PAGER" ] && PAGER=$(which less)
 
-    #  Check to see if RFC_PATH was set, otherwise default in the current
+    #  Check to see if RFC_PATH was set, otherwise default to the current
     #+ user's cache directory.
     [ -z "$RFC_PATH" ] && RFC_PATH="$HOME/.cache/rfc/"
 
@@ -96,7 +96,7 @@ search () {
                     break
                     ;;
                 *)
-                    echo "Please enter y or n"
+                    echo "Please enter y or n to continue..."
                     ;;
             esac
         done
