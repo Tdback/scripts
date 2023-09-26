@@ -1,0 +1,151 @@
+#!/usr/bin/env sh
+
+
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : rfc
+# @created     : Tue Sep 26 06:00:29 PM EDT 2023
+#
+# @description : A simple tool to query RFC entries.
+################################################################################
+
+VERSION="rfc version 20230926"
+
+usage () {
+    echo "Usage: rfc [-h] [-k] [-K] <entry>"
+    echo "A simple tool to query RFC entries."
+    echo
+    echo "Options:"
+    echo "  -h          Displays this help page and exits."
+    echo "  -k          Search for an expression across all RFC entries."
+    echo "  -K          Search for an expression across all RFC entries;"
+    echo "              Search expression is interpreted as a perl-compatible"
+    echo "              regular expression (PCRE)."
+
+    exit 1
+}
+
+setup () {
+    # Check for PAGER, otherwise default to good ol' less
+    [ -z "$PAGER" ] && PAGER=$(which less)
+
+    #  Check to see if RFC_PATH was set, otherwise default in the current
+    #+ user's cache directory.
+    [ -z "$RFC_PATH" ] && RFC_PATH="$HOME/.cache/rfc/"
+
+    # Make sure the provided path ends in '/' for later use
+    if ! echo "$RFC_PATH" | grep -q '.*/$'
+    then
+        RFC_PATH="$RFC_PATH/"
+    fi
+
+    # Ensure cache exists
+    if [ ! -d "$RFC_PATH" ] || [ "$(find "$RFC_PATH" | wc -l)" -eq 1 ]
+    then
+        printf "Creating rfc cache..."
+        mkdir -p "$RFC_PATH"
+        cd "$RFC_PATH" && git clone "$rfc_repo" --depth=1 --quiet \
+            && tar -xf RFC-Index/rfc.tar.xz && rm -rf RFC-Index \
+            || echo " error; rfc cache failed to create"
+        echo " done; rfc cache created"
+    fi
+}
+
+search () {
+    if [ "$1" -eq 0 ]
+    then
+        printf "Search: "
+        read -r ans
+        printf "Starting search for '%s'..." "$ans"
+
+        result=$(grep -cr "$ans" "$RFC_PATH" |\
+            awk -F':' '{ if ($2 > 0) { sub(/^\/.+\/rfc\//,"",$1)
+                            print "Filename: "$1" | Occurrence: "$2 }}')
+
+        echo " done;"
+    fi
+
+    if [ "$1" -eq 1 ]
+    then
+        printf "Search (PCRE): "
+        read -r ans
+        printf "Starting advanced search for '%s'..." "$ans"
+
+        result=$(grep -Pcr "$ans" "$RFC_PATH" |\
+            awk -F':' '{ if ($2 > 0) { sub(/^\/.+\/rfc\//,"",$1)
+                            print "Filename: "$1" | Occurrence: "$2 }}')
+
+        echo " done;"
+    fi
+
+    total=$(echo "$result" | wc -l)
+
+    if [ "$total" -gt 10 ]
+    then
+        while :
+        do
+            echo "Match found in more than 10 files. (Total: $total files)"
+            printf "Do you wish to view all matches [y/n]: "
+            read -r prompt
+            case "$prompt" in
+                [Yy])
+                    echo "$result" | sort -t':' -k3 -nr | "$PAGER"
+                    break
+                    ;;
+                [Nn])
+                    echo "$result" | sort -t':' -k3 -nr | head
+                    break
+                    ;;
+                *)
+                    echo "Please enter y or n"
+                    ;;
+            esac
+        done
+
+        exit 0
+    fi
+
+    echo "$result" | sort -t':' -k3 -nr
+
+    exit 0
+}
+
+
+# Start of the script
+[ "$#" -eq 0 ] || [ "$#" -gt 1 ] && usage
+[ "$1" = "--version" ] && echo "$VERSION" && exit 1
+
+rfc_repo="https://github.com/Tdback/RFC-Index"
+
+setup
+
+while getopts ":hkK" arg
+do
+    case "$arg" in
+        k)
+            [ "$#" -gt 1 ] \
+                && echo "Incorrect usage of option '-k'. See '-h' for usage." \
+                && exit 1
+
+            # Do a standard search
+            search 0
+            ;;
+        K)
+            [ "$#" -gt 1 ] \
+                && echo "Incorrect usage of option '-K'. See '-h' for usage." \
+                && exit 1
+
+            # Do an advanced search
+            search 1
+            ;;
+        h | *)
+            usage
+            ;;
+    esac
+done
+
+# Not searching, must be looking for an index.
+# Don't forget to remove the unnecessary form feed before giving it to the user.
+sed 's/\f//' "${RFC_PATH}rfc${1}.txt" | "$PAGER"
+
+# vim: ft=sh
