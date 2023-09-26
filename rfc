@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 ################################################################################
 # @author      : Tyler Dunneback (tylerdback@pm.me)
 # @file        : rfc
@@ -113,8 +112,11 @@ search () {
 
 # Start of the script
 [ "$#" -eq 0 ] || [ "$#" -gt 1 ] && usage
+
+# Only check for version flag and exit. Parse all other flags using getopts.
 [ "$1" = "--version" ] && echo "$VERSION" && exit 1
 
+# Repo to the downloaded RFCs. Saves loads of time for the user to setup.
 rfc_repo="https://github.com/Tdback/RFC-Index"
 
 setup
@@ -144,7 +146,7 @@ do
     esac
 done
 
-# Not searching, must be looking for an index.
+# All flags should be parsed at this point.
 # Don't forget to remove the unnecessary form feed before giving it to the user.
 sed 's/\f//' "${RFC_PATH}rfc${1}.txt" | "$PAGER"
 
