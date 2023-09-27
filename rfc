@@ -43,9 +43,12 @@ setup () {
     then
         printf "Creating rfc cache..."
         mkdir -p "$RFC_PATH"
-        cd "$RFC_PATH" && git clone "$rfc_repo" --depth=1 --quiet \
-            && tar -xf RFC-Index/rfc.tar.xz && rm -rf RFC-Index \
-            || echo " error; rfc cache failed to create"
+
+        # Clone the entries down into the cache, exit if anything fails.
+        (cd "$RFC_PATH" && git clone "$rfc_repo" --depth=1 --quiet \
+            && tar -xf RFC-Index/rfc.tar.xz && rm -rf RFC-Index) \
+            || (echo " error; rfc cache failed to create" && exit 1)
+
         echo " done; rfc cache created"
     fi
 }
