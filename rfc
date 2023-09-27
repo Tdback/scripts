@@ -8,7 +8,7 @@
 # @description : A simple tool to query RFC entries.
 ################################################################################
 
-VERSION="rfc version 20230926"
+VERSION="rfc version 20230927"
 
 usage () {
     echo "Usage: rfc [-h] [-k] [-K] <entry>"
