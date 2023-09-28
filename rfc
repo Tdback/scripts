@@ -44,7 +44,7 @@ setup () {
         printf "Creating rfc cache..."
         mkdir -p "$RFC_PATH"
 
-        # Grab all matches, trim the filenames when showing results
+        # Clone the entries down into the cache, exit if anything fails.
         (cd "$RFC_PATH" && git clone "$rfc_repo" --depth=1 --quiet \
             && tar -xf RFC-Index/rfc.tar.xz && rm -rf RFC-Index) \
             || (echo " error; rfc cache failed to create" && exit 1)
@@ -75,6 +75,7 @@ search () {
         read -r ans
         printf "Starting advanced search for '%s'..." "$ans"
 
+        # Grab all matches, trim the filenames when showing results
         result=$(grep -Pcr "$ans" "$RFC_PATH" \
             | awk -F':' -v path="$RFC_PATH" \
                     '{ if ($2 > 0) { sub("^" path,"",$1)
