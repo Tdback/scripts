@@ -44,7 +44,7 @@ setup () {
         printf "Creating rfc cache..."
         mkdir -p "$RFC_PATH"
 
-        # Clone the entries down into the cache, exit if anything fails.
+        # Grab all matches, trim the filenames when showing results
         (cd "$RFC_PATH" && git clone "$rfc_repo" --depth=1 --quiet \
             && tar -xf RFC-Index/rfc.tar.xz && rm -rf RFC-Index) \
             || (echo " error; rfc cache failed to create" && exit 1)
@@ -60,9 +60,11 @@ search () {
         read -r ans
         printf "Starting search for '%s'..." "$ans"
 
+        # Grab all matches, trim the filenames when showing results
         result=$(grep -cr "$ans" "$RFC_PATH" \
-            | awk -F':' '{ if ($2 > 0) { sub(/^\/.+\/rfc\//,"",$1)
-                                print "Filename: "$1" | Occurrence: "$2 }}')
+            | awk -F':' -v path="$RFC_PATH" \
+                    '{ if ($2 > 0) { sub("^" path,"",$1)
+                            print "Filename: "$1" | Occurrence: "$2 }}')
 
         echo " done;"
     fi
@@ -74,8 +76,9 @@ search () {
         printf "Starting advanced search for '%s'..." "$ans"
 
         result=$(grep -Pcr "$ans" "$RFC_PATH" \
-            | awk -F':' '{ if ($2 > 0) { sub(/^\/.+\/rfc\//,"",$1)
-                                print "Filename: "$1" | Occurrence: "$2 }}')
+            | awk -F':' -v path="$RFC_PATH" \
+                    '{ if ($2 > 0) { sub("^" path,"",$1)
+                            print "Filename: "$1" | Occurrence: "$2 }}')
 
         echo " done;"
     fi
