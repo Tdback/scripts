@@ -7,6 +7,7 @@ Simply clone this repo and add it to your `PATH`
 ## Requirements ##
 Some scripts may require the following programs to be installed on your system
 in order to run:
+- curl
 - mpc
 - fzf
 - feh
