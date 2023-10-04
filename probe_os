@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : awc
+# @created     : Tue Aug 15 09:05:22 PM EDT 2023
+#
+# @description : A simple and quick way to identify OS's on a target IP.
+#                A fun exercise in network forensics scripting.
+################################################################################
+
+from scapy.all import *
+import os
+
+if os.environ["USER"] != "root":
+    print("Error: script requires root privileges.")
+    quit()
+
+ip = IP()
+ping = ICMP()
+ip.dst = input("Enter target IP address: ")
+
+print("Sending ping packet...", end="")
+reply = sr1(ip/ping, verbose=0)
+print(" done;")
+
+# Sorry BSDs :)
+os_name = "Linux" if reply.ttl < 65 else "Windows"
+
+print(f"Target operating system: {os_name}")
