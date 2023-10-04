@@ -2,8 +2,8 @@
 
 ################################################################################
 # @author      : Tyler Dunneback (tylerdback@pm.me)
-# @file        : awc
-# @created     : Tue Aug 15 09:05:22 PM EDT 2023
+# @file        : probe_os
+# @created     : Wed Oct  4 07:19:43 PM EDT 2023
 #
 # @description : A simple and quick way to identify OS's on a target IP.
 #                A fun exercise in network forensics scripting.
