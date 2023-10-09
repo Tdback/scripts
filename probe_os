@@ -10,9 +10,9 @@
 ################################################################################
 
 from scapy.all import *
-import os
+from os import environ
 
-if os.environ["USER"] != "root":
+if environ["USER"] != "root":
     print("Error: script requires root privileges.")
     quit()
 
