@@ -1,6 +1,6 @@
 # Scripts #
 This repo contains a collection of scripts that I use often. Some are quite
-useful, while others are just for fun :)
+useful, while others are for fun or practice when learning a new language :)
 
 ## Getting Started ##
 Simply clone this repo and add it to your `PATH`
@@ -12,6 +12,7 @@ in order to run:
 - fzf
 - feh
 - mpc
+- tclsh (tcl's interpreter)
 - scapy (Python library)
 - POSIX compliant shell
 - EDITOR (set this environment variable)

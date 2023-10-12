@@ -1,0 +1,49 @@
+#!/usr/bin/env tclsh
+
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : talk
+# @created     : Wed Oct 11 10:05:53 PM EDT 2023
+#
+# @description : A clone of walk, written in tcl
+################################################################################
+
+
+proc walk basedir {
+    # Ensure directory name is in a native format for the platform
+    set basedir [string trimright [file join [file normalize $basedir] { }]]
+
+    # Always print out the basedir, but remove a trailing '/' if it's just
+    # a file
+    if { [file isfile $basedir] } {
+        puts [string trim $basedir "*/"]
+    } else {
+        puts $basedir
+    }
+
+    # Print out each filename in the base directory
+    foreach filename [glob -nocomplain -type {f r} -path $basedir *] {
+        puts $filename
+    }
+
+    # Walk each subdirectory recursively in the basedir
+    foreach dirname [glob -nocomplain -type {d r} -path $basedir *] {
+        set subdir_list [walk $dirname]
+        if { [llength $subdir_list] > 0 } {
+            foreach f $subdir_list {
+                puts $f
+            }
+        }
+    }
+}
+
+# Parse args here
+if {[llength $::argv] > 0} {
+    foreach arg $::argv {
+        walk $arg
+    }
+} else {
+    puts "Usage: $::argv0 \[directory...\]"
+}
+
+# vim: ft=tcl
