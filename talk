@@ -5,9 +5,8 @@
 # @file        : talk
 # @created     : Wed Oct 11 10:05:53 PM EDT 2023
 #
-# @description : A clone of walk, written in tcl
+# @description : A clone of Plan 9's walk, written in tcl
 ################################################################################
-
 
 proc walk basedir {
     # Ensure directory name is in a native format for the platform
