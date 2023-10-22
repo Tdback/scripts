@@ -9,7 +9,7 @@
                A fun exercise in network forensics scripting.
 """
 
-from scapy.all import *
+from scapy.all import IP, ICMP, sr1
 from os import environ
 
 def main() :
