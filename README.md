@@ -12,7 +12,6 @@ in order to run:
 - fzf
 - feh
 - mpc
-- tclsh (tcl's interpreter)
 - scapy (Python library)
 - POSIX compliant shell
 - EDITOR (set this environment variable)
