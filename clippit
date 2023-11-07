@@ -5,11 +5,11 @@
 # @file        : clippit
 # @created     : Mon Nov  6 07:04:29 PM EST 2023
 #
-# @description : Copy the contents of a file into the system clipboard.
-#                Assumes user is using 'xlcip' package.
+# @description : Copy the contents of a list of files to the system clipboard.
+#                Assumes user is using 'xclip' package.
 ################################################################################
 
-if [ "$(which xclip)" = "xclip not found" ]
+if ! command -v xclip > /dev/null
 then
     printf "[ERROR] Package 'xclip' not found. "
     printf "Please install xclip via your package manager; quitting...\n"
