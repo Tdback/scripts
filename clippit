@@ -3,10 +3,10 @@
 ################################################################################
 # @author      : Tyler Dunneback (tylerdback@pm.me)
 # @file        : clippit
-# @created     : Mon Nov  6 07:04:29 PM EST 2023
+# @created     : Mon Nov  6 09:38:13 PM EST 2023
 #
-# @description : Copy the contents of a list of files to the system clipboard.
-#                Assumes user is using 'xclip' package.
+# @description : Copy the contents of stdin or a list of files to the system
+#                clipboard. Assumes user is using the 'xclip' package.
 ################################################################################
 
 # Make sure xclip is installed
