@@ -9,6 +9,7 @@
 #                Assumes user is using 'xclip' package.
 ################################################################################
 
+# Make sure xclip is installed
 if ! command -v xclip > /dev/null
 then
     printf "[ERROR] Package 'xclip' not found. "
@@ -19,7 +20,7 @@ fi
 for i in "$@"
 do
     ! [ -r "$i" ] \
-        && echo "[ERROR] File $i does not exist or is not readable; quitting..." \
+        && echo "[ERROR] File '$i' does not exist or is not readable; quitting..." \
         && exit 1
 done
 
