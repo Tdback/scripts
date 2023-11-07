@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+################################################################################
+# @author      : Tyler Dunneback (tylerdback@pm.me)
+# @file        : clippit
+# @created     : Mon Nov  6 07:04:29 PM EST 2023
+#
+# @description : Copy the contents of a file into the system clipboard.
+#                Assumes user is using 'xlcip' package.
+################################################################################
+
+if [ "$(which xclip)" = "xclip not found" ]
+then
+    printf "[ERROR] Package 'xclip' not found. "
+    printf "Please install xclip via your package manager; quitting...\n"
+fi
+
+# Slowest part of the script. Maybe a way to make this faster?
+for i in "$@"
+do
+    ! [ -r "$i" ] \
+        && echo "[ERROR] File $i does not exist or is not readable; quitting..." \
+        && exit 1
+done
+
+xclip -sel clip "$@"
+
+# vim: ft=sh
