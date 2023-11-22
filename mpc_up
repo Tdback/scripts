@@ -14,11 +14,14 @@ playlist_name="$1"
 
 [ -d "$music_dir" ] && cd "$music_dir" || exit 1
 
-[ -e "$HOME/.config/mpd/playlists/${playlist_name}.m3u" ] && mpc rm "$playlist_name"
+# Don't forget to clear the current playlist, or else it gets duplicated
+[ -e "$HOME/.config/mpd/playlists/${playlist_name}.m3u" ] && \
+    mpc clear > /dev/null && \
+    mpc rm "$playlist_name"
 
 # Add every song in the music directory.
 mpc add -- *
 
 mpc save "$playlist_name"
 
-# vim: ft=sh
+# vim:ft=sh
